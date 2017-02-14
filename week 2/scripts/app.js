@@ -4,7 +4,7 @@
 angular.module("ShoppingListCheckOff", [])
 
 .service("ShoppingListCheckOffService", function() {
-	this.toBuyItems = [
+	var toBuyItems = [
 		{
 			name: 'Xbox One', 
 			quantity: 3
@@ -26,16 +26,23 @@ angular.module("ShoppingListCheckOff", [])
 			quantity: 2
 		}
 	];
-	this.alreadyBoughtItems = [];
+	var alreadyBoughtItems = [];
 
 	this.checkOff = function (index) {
-		this.alreadyBoughtItems.push(this.toBuyItems[index]);
-		this.toBuyItems.splice(index, 1);
+		alreadyBoughtItems.push(toBuyItems[index]);
+		toBuyItems.splice(index, 1);
+	}
+
+	this.getToBuyItems = function () {
+		return toBuyItems;
+	}
+	this.getBoughtItems = function () {
+		return alreadyBoughtItems;
 	}
 } )
 
 .controller("ToBuyController", ['ShoppingListCheckOffService', function(ShoppingListCheckOffService){
-	this.items = ShoppingListCheckOffService.toBuyItems;
+	this.items = ShoppingListCheckOffService.getToBuyItems();
 
 	this.moveItem = function (index) {
 		ShoppingListCheckOffService.checkOff(index);
@@ -43,7 +50,7 @@ angular.module("ShoppingListCheckOff", [])
 } ])
 
 .controller("AlreadyBoughtController", ["ShoppingListCheckOffService", function(ShoppingListCheckOffService) {
-	this.items = ShoppingListCheckOffService.alreadyBoughtItems;
+	this.items = ShoppingListCheckOffService.getBoughtItems();
 } ])
 ;
 

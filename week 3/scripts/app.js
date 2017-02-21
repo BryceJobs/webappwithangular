@@ -39,6 +39,8 @@ angular.module("NarrowItDownApp", [])
 
 		var search_controller = this;
 
+		search_controller.error = "";
+
 		search_controller.found = [];
 
 		search_controller.search = function () {
@@ -47,6 +49,8 @@ angular.module("NarrowItDownApp", [])
 			promise.then(
 				function (response) {
 					search_controller.found = response;
+					if (response.length == 0)
+						search_controller.error = 'Nothing Found'
 
 			}
 		);

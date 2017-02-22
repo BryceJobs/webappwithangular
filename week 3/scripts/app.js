@@ -39,21 +39,29 @@ angular.module("NarrowItDownApp", [])
 
 		var search_controller = this;
 
-		search_controller.error = "";
+		
 
 		search_controller.found = [];
 
 		search_controller.search = function () {
-			var promise = MenuSearchService.getMatchedMenuItems(this.searchTerm);
-			console.log(promise);
-			promise.then(
-				function (response) {
-					search_controller.found = response;
-					if (response.length == 0)
-						search_controller.error = 'Nothing Found'
+			search_controller.error = "";
+			if (search_controller.searchTerm == "") {
+				search_controller.found = [];
+				search_controller.error = 'Nothing Found';
+			} else {
 
+
+				var promise = MenuSearchService.getMatchedMenuItems(search_controller.searchTerm);
+				console.log(promise);
+				promise.then(
+					function (response) {
+						search_controller.found = response;
+						if (response.length == 0)
+							search_controller.error = 'Nothing Found';
+
+					}
+				);
 			}
-		);
 		
 	};
 

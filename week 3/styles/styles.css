@@ -51,6 +51,6 @@ input[type="text"] {
   }
 }
 
-ul, ol{
+ul, ol, div h1{
   clear: both;
 }

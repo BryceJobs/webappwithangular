@@ -1,0 +1,27 @@
+body { 
+	padding-top: 52px; 
+}
+
+.jumbotron p span{
+	color: #E80C89;
+}
+
+.bname{
+	color: teal;
+}
+
+nav a.navbar-brand{
+	color: #E80C89 !important;
+}
+
+nav a.navbar-brand span{
+	color: teal !important;
+}
+
+[ui-sref] {
+	cursor: pointer;
+}
+
+.bname span{
+	color: #E80C89 ;
+}

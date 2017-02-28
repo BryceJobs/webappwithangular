@@ -1,0 +1,42 @@
+
+	
+		
+		<div class="panel panel-primary" >
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Categories List</h3>
+		  </div>
+		  <div class="panel-body">
+		  		<p class="lead">Please choose from the list in the table below</p>
+		  </div>
+		  <table class="table table-striped table-hover table-bordered">
+		  	<thead>
+			  	<tr>
+			  		<th>id</th>
+			  		<th>name</th>
+			  		<th>shortname</th>
+			  		<th>Special Instructions</th>
+			  	</tr>
+		  	</thead>
+		  	<tbody>
+			  	<tr ng-repeat="item in $ctrl.categories" ui-sref='categories.category({category: item.short_name})'>
+			  		<td>{{item.id}}</td>
+			  		<td>{{item.name}}</td>
+			  		<td>{{item.short_name}}</td>
+			  		<td>{{item.special_instructions || "none"}}</td>
+			  	</tr>
+		  	</tbody>
+		  </table>
+		  <div class="panel-footer">
+			<p>make your choice</p>
+		  </div>
+		</div>
+		
+
+
+
+
+<!-- <ul>
+  <li ng-repeat="item in $ctrl.categories">
+    {{ item.id }} of {{ item.name }}
+  </li>
+</ul> -->

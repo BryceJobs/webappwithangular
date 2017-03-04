@@ -2,7 +2,7 @@
 	
 	angular.module('Data')
 
-	.constant("baseURL", "http://davids-restaurant.herokuapp.com")
+	.constant("baseURL", "https://davids-restaurant.herokuapp.com")
 
 	.service('MenuDataService', ['$http', 'baseURL', function ($http, baseURL) {
 		

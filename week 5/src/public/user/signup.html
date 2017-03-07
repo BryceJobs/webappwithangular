@@ -1,0 +1,79 @@
+
+<div class="row">
+	<div class="container">
+
+		<div class="col-sm-6 col-sm-offset-3">
+
+			<div class="page-header">
+
+		   		<h1>Registration Form </h1>
+			</div>
+			
+			<form name="regform" class="form-horizontal  well signupform" novalidate>
+				
+				<div class="form-group">
+
+					<label class="control-label col-sm-4">First Name</label>
+					<div class="col-sm-8">
+						<input required  ng-model="signupctrl.user.firstname" class="form-control" placeholder="Your FirstName" type="text" name="firstname">
+						<span ng-show="regform.firstname.$error.required  && regform.firstname.$touched">Your first name is required</span>
+					</div>
+
+				</div>
+				<div class="form-group">
+
+					<label class="control-label col-sm-4">Last Name</label>
+					<div class="col-sm-8">
+						<input required  ng-model="signupctrl.user.lastname" class="form-control" placeholder="Your LastName" type="text" name="lastname">
+						<span ng-show="regform.lastname.$error.required  && regform.lastname.$touched">Your last name is required</span>	
+					</div>
+
+				</div>
+				<div class="form-group">
+					
+					<label class="control-label col-sm-4">Email</label>
+					<div class="col-sm-8">
+						<input required  ng-model="signupctrl.user.email" class="form-control" placeholder="username@hostname.xxx" type="email" name="email">
+						<span style="color:red" ng-show="regform.email.$touched && regform.email.$invalid">
+						  <span ng-show="regform.email.$error.required">Email is required.</span>
+						  <span ng-show="regform.email.$error.email">Invalid email address.</span>
+						</span>
+					</div>
+
+				</div>
+				<div class="form-group">
+					
+					<label class="control-label col-sm-4">Phone</label>
+					<div class="col-sm-8">
+						<input required pattern="(\d{3})-(\d{3})-(\d{4})"  ng-model="signupctrl.user.phone" class="form-control" placeholder="###-###-####" type="tel" name="phone">
+						<span ng-show="regform.phone.$invalid  && regform.phone.$touched">Your Phone number is required format : ###-###-####</span>
+					</div>
+
+				</div>
+				<div class="form-group">
+					
+					<label class="control-label col-sm-4">Favourite Dish</label>
+					<div class="col-sm-8">
+						<input required  ng-model="signupctrl.user.favdish" class="form-control" placeholder="Your favourite Dish short name: A1, L5..." type="text" name="favdish" required>
+						<span ng-show="regform.favdish.$error.required  && regform.favdish.$touched">Your Favourite dish is required</span>
+						<span ng-show="signupctrl.favDishNotFound">{{signupctrl.status}}</span>
+					</div>
+
+				</div>
+
+				<div class="form-group">
+				    <div class="col-sm-offset-4 col-sm-10">
+				      <button type="submit" class="btn btn-default" ng-click="signupctrl.processReg()"
+				      	 ng-disabled="regform.$invalid"
+				      >Suscribe</button>
+				    </div>
+				</div>
+				<span class="success" ng-hide="signupctrl.favDishNotFound">{{signupctrl.status}}</span>
+
+			</form>
+
+		</div>
+
+	</div>
+</div>
+

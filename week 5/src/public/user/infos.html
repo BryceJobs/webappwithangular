@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="container">
+		<div class="col-sm-8 col-sm-offset-2" ng-if="!infosctrl.user.firstname">
+			<h1>
+				Not Signed Up Yet. <a ui-sref="public.signup">Sign up</a>  Now!
+			</h1>
+		</div>
+		<div ng-if="infosctrl.user.firstname" class="col-sm-8 col-sm-offset-2">
+
+			<div class="page-header">
+		   		<h2>User Informations </h2>
+			</div>
+			<div class="col-sm-7">
+				<div class="page-header">
+			   		<h3> Personal Details </h3>
+				</div>
+				<div class="well" style="color: black;">
+					<p><strong>Firt Name:</strong> <br> {{infosctrl.user.firstname}}</p><br>
+					<p><strong>Last Name:</strong> <br>{{infosctrl.user.lastname}}</p><br>
+					<p><strong>Email:</strong> <br>{{infosctrl.user.email}}</p><br>
+					<p><strong>Phone:</strong> <br>{{infosctrl.user.phone}}</p><br>
+				</div>
+			</div>
+
+			<div class="col-sm-5">
+				<div class="page-header">
+			   		<h3>Favourite dish </h3>
+				</div>
+			    <div class="thumbnail">
+			      <img ng-src="{{infosctrl.dishImage}}">
+			      <div class="caption">
+			        <h3>{{infosctrl.dishInfos.name}}</h3>
+			        <p>{{infosctrl.dishInfos.description}}</p>
+			        <p><span>starting : {{infosctrl.dishInfos.price_small || infosctrl.dishInfos.price_large | currency }}</span> <span class="pull-right"> Short_name : {{infosctrl.dishInfos.short_name}} </span></p>
+			      </div>
+			    </div>
+			 </div>
+			
+		</div>
+	</div>
+</div>
